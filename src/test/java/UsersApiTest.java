@@ -62,7 +62,7 @@ public class UsersApiTest {
     //Проверить негативные коды ответов
     public void users500Test() {
         Spec.specification(Spec.req(), Spec.res500());
-        ValidatableResponse usersFemale = given()
+        ValidatableResponse users = given()
                 .when()
                 .get("users?gender=test")
                 .then().log().all();
