@@ -12,14 +12,10 @@ import static io.restassured.RestAssured.given;
 @RunWith(Parameterized.class)
 public class UserDataFemaleApiTest {
     private final int id;
-    static Date curDate = new Date();
-    static Date oldDate = new Date(946728000000L);
-
     public UserDataFemaleApiTest(int id) {
         this.id = id;
     }
 
-    //@Before
     @Parameterized.Parameters
     //Получение списка пользователей, gender=female
     public static List<Integer> userDataMaleTestBefore() {
@@ -56,8 +52,8 @@ public class UserDataFemaleApiTest {
         Assert.assertNotNull(user.getUser().getCity());
         //проверки на дату регистрации
         Assert.assertNotNull(regDate);
-        assert regDate.before(curDate) : "Invalid date: regDate after current date";
-        assert regDate.after(oldDate) : "Invalid date: regDate before 2000 year";
+        assert regDate.before(Spec.curDate) : "Invalid date: regDate after current date";
+        assert regDate.after(Spec.oldDate) : "Invalid date: regDate before 2000 year";
 
     }
 }

@@ -5,14 +5,12 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Spec {
     public static final String URL = "https://hr-challenge.interactivestandard.com/api/test/";
-    //static final SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    static Date curDate = new Date();
+    static Date oldDate = new Date(946728000000L);
 
     public static RequestSpecification req(){
         return new RequestSpecBuilder()
@@ -32,17 +30,6 @@ public class Spec {
     public static void specification(RequestSpecification request, ResponseSpecification response){
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
-    }
-
-    public static void main(String[] args) {
-//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-//        System.out.println(dateformat.format(timestamp));
-//        SimpleDateFormat currDate = dateformat.format(timestamp);
-        Calendar cal = Calendar.getInstance();
-        cal.setLenient(false);
-        System.out.println(cal.getTimeInMillis());
-        System.out.println(cal.getTimeInMillis()-200);
-
     }
 
 }
