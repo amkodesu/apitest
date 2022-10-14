@@ -42,7 +42,7 @@ public class UsersApiTest {
     }
 
     @Test
-    //Получение списка пользователей, gender=female
+    //Получение списка пользователей, gender=any
     public void usersAnyTest() {
         Spec.specification(Spec.req(), Spec.res200());
         ValidatableResponse usersAny = given()
